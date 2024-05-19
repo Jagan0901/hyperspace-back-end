@@ -3,7 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const bcrypt = require("bcryptjs");
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const User = require("./models/user");
 const GeoData = require("./models/geoData");
@@ -12,6 +13,8 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+app.use(cors());
 
 const MONGO_URL = process.env.MONGO_URL
 // Database connection
